@@ -8,8 +8,10 @@
       rel="stylesheet"
     />
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+     <meta property="og:image" content="{{ asset('template_web/birthday_7/images/1.jpg')}}">
     <meta charset="UTF-8" />
-
+     <title>Birthday Invitation of Chanel's</title>
+    <meta name="description" content="Hello {{$nama}}, You're Invited to Chanel’s Birthday, see invitation here" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
@@ -24,19 +26,27 @@
         font-family: Daydream;
       }
 
+      @font-face {
+        font-family: Breathing;
+        src: url("Breathing.ttf");
+      }
+      .breath {
+        font-family: Breathing;
+      }
+
 
       @keyframes marquee {
         from {
           transform: translateX(0);
         }
         to {
-          transform: translateX(-50%);
+          transform: translateX(-84%);
         }
       }
       .animate-marquee {
         display: flex;
         width: max-content;
-        animation: marquee 10s linear infinite;
+        animation: marquee 20s linear infinite;
       }
 
       .fredoka {
@@ -87,6 +97,19 @@
         } /* Kembali ke posisi awal */
       }
 
+      @keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink 3s infinite;
+}
+
       @keyframes gerakKi {
         0% {
           transform: translateX(0);
@@ -126,7 +149,7 @@
 .spin-loop {
   animation:
     spin 8s linear infinite,
-    blink 1s ease-in-out infinite;
+    blink 2s ease-in-out infinite;
 }
 
 @keyframes pulses {
@@ -164,9 +187,9 @@
   <body
     class="overflow-x-hidden overflow-y-hidden max-w-[600px] mx-auto h-screen"
   >
-  <audio controls id="musicplayer" control class="fixed bottom-0 left-0 mx-auto w-full mb-5 z-40 ">
-    <source src="{{ asset('project/' . $data->bgmusik) }}" type="audio/mpeg">
-    Sorry, but your browser doesn't support audio.
+  <audio id="musicplayer" preload="auto">
+  <source src="{{ asset('project/' . $data->bgmusik) }}" type="audio/mpeg">
+  Browser tidak mendukung audio.
 </audio>
     <div class="relative cover">
       <!-- <div class="absolute flex justify-between h-screen w-full flex-col z-20">
@@ -184,8 +207,12 @@
       <!-- <div
         class="w-full h-screen bg-[url('./images/star.png')] absolute z-10"
       ></div> -->
+      <div class="absolute top-0 left-0 z-10 right-0 text-center mt-[7vw]">
+        <p class="sergio fredoka text-[18px] text-[#e17b7b]">Dear, {{ $nama }}</p>
+        <p class="sergio fredoka text-[18px] text-[#e17b7b]">Please join us to celebrate </p>
+      </div>
       <video autoplay muted playsinline class="absolute w-full h-screen object-cover z-0">
-        <source src="{{ asset('template_web/birthday_7/images/vid.mp4')}}" type="video/mp4" />
+        <source src="{{ asset('template_web/birthday_7/images/vid3.mp4')}}" type="video/mp4" />
         Browser kamu tidak mendukung video HTML5.
       </video>
       
@@ -217,6 +244,7 @@
 
           <button
             class="bg-[#fcdae5] px-5 py-2 cursor-pointer mt-[155vw] text-[3.5vw] light lg:text-[2vw] mx-auto lilita text-[#b5663e] rounded-[8px]"
+            onclick="openInv()"
           >
             Open Invitation
           </button>
@@ -255,7 +283,7 @@
         <p
           class="text-[10vw] lg:text-[4vw] text-[#fb92ab] text-center fredoka lg:mb-[-5vw] mb-[-6vw]"
         >
-            
+            Azzahra Umar
         </p>
         <p
           class="text-[#b77b55] text-[5vw] lg:text-[2vw] text-center font-serif mt-[4vw] font-light"
@@ -298,7 +326,7 @@
 
 
       <div
-          class="flex justify-center relative overflow-x-hidden"
+          class="flex justify-center relative overflow-x-hidden overflow-y-hidden"
         >
           <div class="absolute left-0 bottom-0">
             <img
@@ -433,7 +461,7 @@
         </div>
         <div class="w-[50vw]">
           <a
-            href=""
+            href="https://maps.app.goo.gl/osFfFGRtRogTWj6s6?g_st=iw"
             target="_blank"
             class="bg-[#f8afaf] text-black text-center mx-auto px-7 py-3 cursor-pointer mt-[4vw] text-[5vw] lg:text-[2vw] mx-auto fredoka text-white rounded-full"
           >
@@ -625,7 +653,7 @@
             <div>
                 <p class="text-[5vw] text-[#76379d] lilita">{{ $m->nama }}</p>
                 <p class="text-[3.5vw] text-[#76379d] lilita">
-    {{ $m->number == 0 ? '' : $m->number . ' Person' }}
+    {{ $m->status === 'tidak' ? '' : $m->number . ' Person' }}
 </p>
 
                 
@@ -690,8 +718,10 @@
 
         button.addEventListener("click", function () {
           cover.style.display = "none"; // Sembunyikan div cover
-          body.style.overflow= "scroll";
+          body.style.overflowY= "scroll";
+        //   openInv();
           content.classList.remove("hidden"); // Tampilkan div content
+         
         });
       });
     </script>
@@ -737,7 +767,9 @@
       };
       function openInv() {
         var audio = document.getElementById("musicplayer");
-        audio.play();
+        audio.play().catch(err => {
+          console.warn("Gagal memutar audio:", err);
+        });
       }
     </script>
   </body>
