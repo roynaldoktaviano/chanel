@@ -95,6 +95,19 @@
         } /* Kembali ke posisi awal */
       }
 
+      @keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink 3s infinite;
+}
+
       @keyframes gerakKi {
         0% {
           transform: translateX(0);
@@ -134,7 +147,7 @@
 .spin-loop {
   animation:
     spin 8s linear infinite,
-    blink 1s ease-in-out infinite;
+    blink 2s ease-in-out infinite;
 }
 
 @keyframes pulses {
@@ -235,7 +248,7 @@
           <img
             src="./images/kiri.png"
             alt=""
-            class="w-[45vw] lg:w-[20vw] "
+            class="w-[45vw] lg:w-[20vw] pulse-image"
           />
         </div>
         <div>
@@ -245,7 +258,7 @@
           <img
             src="./images/kanan.png"
             alt=""
-            class="w-[45vw] lg:mb-[10vw] lg:w-[20vw]"
+            class="w-[45vw] lg:mb-[10vw] lg:w-[20vw] pulse-image"
           />
         </div>
       </div>
@@ -254,14 +267,14 @@
 
       <div class="flex justify-between items-center">
         <div>
-        <img src="./images/blink.png" alt="" class="w-[10vw] mx-auto object-contain pulse-image">
-        <img src="./images/wan.png" alt="" class="w-[20vw] mx-auto object-contain mt-[5vw]">
+        <img src="./images/blink.png" alt="" class="w-[10vw] mx-auto object-contain pulse-image blink">
+        <img src="./images/wan.png" alt="" class="w-[20vw] mx-auto object-contain mt-[5vw] animasi-gerak">
         <img src="./images/bung.png" alt="" class="w-[10vw] mx-auto object-contain mt-[10vw] spin-loop ml-[-5vw]">
         </div>
-        <img src="./images/kittyy.png" alt="" class="w-[50vw] mx-auto object-contain">
+        <img src="./images/kittyy.png" alt="" class="w-[50vw] mx-auto object-contain z-20">
         <div>
-          <img src="./images/blink.png" alt="" class="w-[10vw] mx-auto object-contain pulse-image">
-          <img src="./images/wan.png" alt="" class="w-[17vw] mx-auto object-contain mt-[5vw]">
+          <img src="./images/blink.png" alt="" class="w-[10vw] mx-auto object-contain pulse-image blink">
+          <img src="./images/wan.png" alt="" class="w-[17vw] mx-auto object-contain mt-[5vw] animasi-gerak2">
           <img src="./images/bung.png" alt="" class="w-[12vw] mx-auto object-contain mt-[15vw] spin-loop ml-[15vw]">
         </div>
       </div>
@@ -286,7 +299,7 @@
             <img
               src="./images/blink.png"
               alt=""
-              class="w-[10vw] mt-5  lg:w-[20vw] mx-auto "
+              class="w-[10vw] mt-5  lg:w-[20vw] mx-auto blink"
             />
             <img
               src="./images/bung.png"
@@ -316,7 +329,7 @@
             <img
             src="./images/blink.png"
             alt=""
-            class="w-[12vw] mt-5  lg:w-[20vw] mx-auto "
+            class="w-[12vw] mt-5  lg:w-[20vw] mx-auto  blink"
           />
           <img
             src="./images/bung.png"
@@ -340,12 +353,12 @@
             <img
             src="./images/blink.png"
             alt=""
-            class="w-[6vw] mt-5  lg:w-[20vw] mx-auto "
+            class="w-[6vw] mt-5  lg:w-[20vw] mx-auto blink"
             />
             <img
             src="./images/wan.png"
             alt=""
-            class="w-[18vw] mt-5  lg:w-[20vw] mx-auto "
+            class="w-[18vw] mt-5  lg:w-[20vw] mx-auto animasi-atas"
             />
           </div>
           <div class="text-center">
@@ -365,12 +378,12 @@
             <img
             src="./images/wan.png"
             alt=""
-            class="w-[22vw] mt-5  lg:w-[20vw] mx-auto "
+            class="w-[22vw] mt-5  lg:w-[20vw] mx-auto animasi-gerak2"
             />
             <img
             src="./images/blink.png"
             alt=""
-            class="w-[8vw] mt-5  lg:w-[20vw] mx-auto "
+            class="w-[8vw] mt-5  lg:w-[20vw] mx-auto blink"
             />
             
             <img
@@ -487,7 +500,7 @@
           <img
             src="./images/blink.png"
             alt=""
-            class="w-[10vw] ml-[10vw] lg:w-[20vw] mx-auto"
+            class="w-[10vw] ml-[10vw] lg:w-[20vw] mx-auto blink"
           />
           <img
           src="./images/bung.png"
@@ -539,7 +552,7 @@
           <img
           src="./images/wan.png"
           alt=""
-          class="w-[20vw] ml-[-3vw] lg:w-[10vw] mx-auto"
+          class="w-[20vw] ml-[-3vw] lg:w-[10vw] mx-auto animasi-gerak"
           />
           <img
           src="./images/awn2.png"
@@ -550,7 +563,7 @@
             <img
             src="./images/blink.png"
             alt=""
-            class="w-[10vw] lg:w-[10vw] mx-auto"
+            class="w-[10vw] lg:w-[10vw] mx-auto blink"
             />
             <img
             src="./images/bung.png"
